@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#292929</color>
+    <color name="colorPrimaryDark">#292929</color>
+    <color name="colorAccent">#FDBE38</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorSearchIcon">#DBDBDB</color>
+    <color name="colorTextHint">#7B7B7B</color>
+    <color name="colorQuickActionsBackground">#2F2D2E</color>
+    <color name="colorIcon">#A4A4A4A4</color>
+    <color name="colorTextHintSubtile">#CECECECE</color>
+    <color name="colorDefaultNoteColor">#333333</color>
+    <color name="colorNoteSubtitleText">#FAFAFA</color>
+    <color name="colorMiscellaneousBackground">#1F1F1F</color>
+    <color name="colorNoteColor2">#FDBE3B</color>
+    <color name="colorNoteColor3">#FF4842</color>
+    <color name="colorNoteColor4">#3A52FC</color>
+    <color name="colorNoteColor5">#000000</color>
+    <color name="colorDelete">#FF4842</color>
+    <color name="colorSearchBackground">#333333</color>
+
+    <color name="primary">#6C4AB6</color>
+    <color name="primary_dark">#8D72E1</color>
+    <color name="primary_text">#FFFFFF</color>
+    <color name="secondary_text">#757575</color>
+    <color name="input_background">#ECECEC</color>
+
+
+
+    <color name="c1">#00E7FF</color>
+    <color name="c2">#205295</color>
+    <color name="c3">#579BB1</color>
+    <color name="c4">#FFA3FD</color>
+    <color name="c5">#FF597B</color>
+    <color name="c6">#9C254D</color>
+    <color name="c7">#5D3891</color>
+    <color name="c8">#61876E</color>
+    <color name="c9">#F2CD5C</color>
+    <color name="c10">#C85C8E</color>
+    <color name="c11">#1F8A70</color>
+
+
+
+</resources>
