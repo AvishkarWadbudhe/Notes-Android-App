@@ -3,6 +3,7 @@ package com.project.notesapp.activities.activity;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -107,11 +108,11 @@ public class MainActivity extends AppCompatActivity {
             };
 
 
+
             binding.notesRecycleView.setLayoutManager(
-                    new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL)
+                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             );
             binding.notesRecycleView.setAdapter(noteAdapter);
-
 
     }
     public static class NoteViewHolder extends RecyclerView.ViewHolder

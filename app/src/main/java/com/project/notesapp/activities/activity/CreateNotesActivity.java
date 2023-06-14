@@ -35,7 +35,7 @@ public class CreateNotesActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
-        binding.textDateTime.setText(getString(R.string.createdon)+
+        binding.textDateTime.setText(
                 new SimpleDateFormat("EEEE,dd MMMM yyyy HH:mm a", Locale.getDefault())
                         .format(new Date())
         );
