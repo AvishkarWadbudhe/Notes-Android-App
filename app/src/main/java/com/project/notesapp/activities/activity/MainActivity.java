@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
             content = itemView.findViewById(R.id.textContent);
             dateTime = itemView.findViewById(R.id.textDateTime);
-            layoutNoteContianer = itemView.findViewById(R.id.layoutNoteContianer);
+            layoutNoteContianer = itemView.findViewById(R.id.layoutNoteContainer);
 
 
         }
