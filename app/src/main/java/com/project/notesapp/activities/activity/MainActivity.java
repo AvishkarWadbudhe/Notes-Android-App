@@ -29,6 +29,7 @@ import com.project.notesapp.databinding.ActivityMainBinding;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                String searchQuery = s.toString().trim();
+                String searchQuery = s.toString().trim().toUpperCase();
                 performSearch(searchQuery);
             }
 
@@ -81,31 +82,32 @@ public class MainActivity extends AppCompatActivity {
 
     }
        // SEARCHING THE TILTLE FORM FIREBASE
-    private void performSearch(String query) {
-        Query searchQuery;
+       private void performSearch(String query) {
+           Query searchQuery;
 
-        if (query.isEmpty()) {
-            searchQuery = firebaseFirestore.collection("notes")
-                    .document(firebaseUser.getUid())
-                    .collection("myNotes")
-                    .orderBy("title");
-        } else {
-            searchQuery = firebaseFirestore.collection("notes")
-                    .document(firebaseUser.getUid())
-                    .collection("myNotes")
-                    .orderBy("title")
-                    .startAt(query)
-                    .endAt(query + "\uf8ff");
-        }
+           if (query.isEmpty()) {
+               searchQuery = firebaseFirestore.collection("notes")
+                       .document(firebaseUser.getUid())
+                       .collection("myNotes")
+                       .orderBy("title");
+           } else {
+               searchQuery = firebaseFirestore.collection("notes")
+                       .document(firebaseUser.getUid())
+                       .collection("myNotes")
+                       .orderBy("title")
+                       .startAt(query)
+                       .endAt(query + "\uf8ff");
+           }
 
-        FirestoreRecyclerOptions<FirebaseModel> searchOptions = new FirestoreRecyclerOptions.Builder<FirebaseModel>()
-                .setQuery(searchQuery, FirebaseModel.class)
-                .build();
+           FirestoreRecyclerOptions<FirebaseModel> searchOptions = new FirestoreRecyclerOptions.Builder<FirebaseModel>()
+                   .setQuery(searchQuery, FirebaseModel.class)
+                   .build();
 
-        noteAdapter.updateOptions(searchOptions);
-    }
+           noteAdapter.updateOptions(searchOptions);
+       }
 
-//RETRIVING ALL NOTES FORM FIRESTORE
+
+    //RETRIVING ALL NOTES FORM FIRESTORE
     private void retriveDataInRecycleView()
     {
         Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid())
