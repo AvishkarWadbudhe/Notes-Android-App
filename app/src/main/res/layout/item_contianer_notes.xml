@@ -40,7 +40,7 @@
             android:ellipsize="end"
             android:textColor="@color/colorNoteSubtitleText"
             android:textSize="@dimen/_12ssp"
-            android:maxLines="3" />
+            android:maxLines="5" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
