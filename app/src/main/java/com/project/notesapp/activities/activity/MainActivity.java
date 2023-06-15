@@ -3,6 +3,8 @@ package com.project.notesapp.activities.activity;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,12 +54,58 @@ public class MainActivity extends AppCompatActivity {
             setListener();
         retriveDataInRecycleView();
     }
-    private void setListener()
-    {
+    private void setListener() {
         binding.newNotes.setOnClickListener(v ->
-                startActivity(  new Intent(getApplicationContext(), CreateNotesActivity.class)));
+                startActivity(new Intent(getApplicationContext(), CreateNotesActivity.class)));
+
+
+      //search function on writting
+        binding.inputSearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // Not needed for this implementation
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String searchQuery = s.toString().trim();
+                performSearch(searchQuery);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                // Not needed for this implementation
+            }
+        });
+
 
     }
+       // SEARCHING THE TILTLE FORM FIREBASE
+    private void performSearch(String query) {
+        Query searchQuery;
+
+        if (query.isEmpty()) {
+            searchQuery = firebaseFirestore.collection("notes")
+                    .document(firebaseUser.getUid())
+                    .collection("myNotes")
+                    .orderBy("title");
+        } else {
+            searchQuery = firebaseFirestore.collection("notes")
+                    .document(firebaseUser.getUid())
+                    .collection("myNotes")
+                    .orderBy("title")
+                    .startAt(query)
+                    .endAt(query + "\uf8ff");
+        }
+
+        FirestoreRecyclerOptions<FirebaseModel> searchOptions = new FirestoreRecyclerOptions.Builder<FirebaseModel>()
+                .setQuery(searchQuery, FirebaseModel.class)
+                .build();
+
+        noteAdapter.updateOptions(searchOptions);
+    }
+
+//RETRIVING ALL NOTES FORM FIRESTORE
     private void retriveDataInRecycleView()
     {
         Query query = firebaseFirestore.collection("notes").document(firebaseUser.getUid())
@@ -106,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
             };
 
 
-
+            //ADDING THE RESULT IN RECYCLEVIEW
             binding.notesRecycleView.setLayoutManager(
                     new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             );
@@ -146,6 +194,7 @@ public class MainActivity extends AppCompatActivity {
            noteAdapter.startListening();
        }
     }
+        //RANDOM COLORS FOR NOTES
     private int getRandomColor()
     {
         List<Integer> colorcode = new ArrayList<>();
