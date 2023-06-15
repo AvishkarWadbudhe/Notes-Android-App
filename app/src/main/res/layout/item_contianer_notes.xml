@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="@dimen/_8sdp"
-    app:cardCornerRadius="@dimen/_8sdp">
+    app:cardCornerRadius="@dimen/_10sdp">
 
     <LinearLayout
         android:id="@+id/layoutNoteContainer"
@@ -40,7 +40,7 @@
             android:ellipsize="end"
             android:textColor="@color/colorNoteSubtitleText"
             android:textSize="@dimen/_12ssp"
-            android:maxLines="3" />
+            android:maxLines="5" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
