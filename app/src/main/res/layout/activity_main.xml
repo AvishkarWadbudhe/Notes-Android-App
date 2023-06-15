@@ -50,7 +50,7 @@
             android:layout_height="@dimen/_35sdp"
             android:layout_marginStart="@dimen/_12sdp"
             android:background="@null"
-            android:fontFamily="@font/ubuntu_regular"
+
             android:hint="@string/search_notes"
             android:imeOptions="actionDone"
             android:importantForAutofill="no"
