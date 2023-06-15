@@ -1,16 +1,15 @@
 package com.project.notesapp.activities.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.project.notesapp.R;
 import com.project.notesapp.databinding.ActivityCreateNotesBinding;
 
 import java.text.SimpleDateFormat;
@@ -36,7 +35,7 @@ public class CreateNotesActivity extends AppCompatActivity {
         firebaseFirestore = FirebaseFirestore.getInstance();
 
         binding.textDateTime.setText(
-                new SimpleDateFormat("EEEE,dd MMMM yyyy HH:mm a", Locale.getDefault())
+                new SimpleDateFormat("EEEE,dd MMMM yyyy HH:mm", Locale.getDefault())
                         .format(new Date())
         );
         setListeners();

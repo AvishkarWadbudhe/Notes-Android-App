@@ -27,7 +27,6 @@
             android:id="@+id/textDateTime"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_regular"
             android:includeFontPadding="false"
             android:textColor="@color/colorNoteSubtitleText"
             android:textSize="@dimen/_8ssp" />
@@ -36,11 +35,12 @@
             android:id="@+id/textContent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ubuntu_regular"
             android:includeFontPadding="false"
+            android:text="display the text-------------------"
+            android:ellipsize="end"
             android:textColor="@color/colorNoteSubtitleText"
-            android:textSize="@dimen/_10ssp"
-            android:maxLines="2" />
+            android:textSize="@dimen/_12ssp"
+            android:maxLines="3" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
