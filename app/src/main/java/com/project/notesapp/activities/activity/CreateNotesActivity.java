@@ -57,7 +57,7 @@ public class CreateNotesActivity extends AppCompatActivity {
         DocumentReference documentReference = firebaseFirestore.collection("notes")
                 .document(firebaseUser.getUid()).collection("myNotes").document();
         Map<String,Object> notes = new HashMap<>();
-        notes.put(Variables.TITLE,binding.inputNoteTitle.getText().toString());
+        notes.put(Variables.TITLE,binding.inputNoteTitle.getText().toString().toUpperCase());
 
         notes.put(Variables.CONTENT,binding.inputNote.getText().toString());
         notes.put(Variables.DATE_TIME, binding.textDateTime.getText().toString());
