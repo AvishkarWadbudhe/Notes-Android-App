@@ -56,8 +56,7 @@ private FirebaseAuth firebaseAuth;
     //LOGIN ACTIVITY
 private void logIn()
 {
-    binding.buttonLogIn.setVisibility(View.INVISIBLE);   //BUTTON INVISIBLE
-    binding.progressBar.setVisibility(View.INVISIBLE);    // PROGRESS BAR VISIBLE
+    loading(true);
 
 
         firebaseAuth.signInWithEmailAndPassword(binding.inputEmail.getText().toString().trim(),
@@ -68,7 +67,7 @@ private void logIn()
                     }
                     else
                     {
-                        binding.buttonLogIn.setVisibility(View.VISIBLE);    //BUTTON VISIBLE
+                        loading(false);  //BUTTON VISIBLE
                         showToast("User Not Found");
                     }
                 });
@@ -120,6 +119,19 @@ private void checkMailVerification()
         }  else
         {
             return true;
+        }
+    }
+    //Progress bar
+    private void loading(Boolean isLoading)
+    {
+        if(isLoading)
+        {
+            binding.buttonLogIn.setVisibility(View.INVISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.progressBar.setVisibility(View.INVISIBLE);
+            binding.buttonLogIn.setVisibility(View.VISIBLE);
         }
     }
 

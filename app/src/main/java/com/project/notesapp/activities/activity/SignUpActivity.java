@@ -44,8 +44,7 @@ private ActivitySignupBinding binding;
     //SIGN UP ACTIVITY
     private void SignUp()
     {
-        binding.buttonSignUp.setVisibility(View.INVISIBLE);   //BUTTON INVISIBLE
-        binding.progressBar.setVisibility(View.INVISIBLE);    // PROGRESS BAR VISIBLE
+      loading(true);
 
         //CREATING NEW USER
         firebaseAuth.createUserWithEmailAndPassword(binding.inputEmail.getText().toString().trim()
@@ -57,7 +56,7 @@ private ActivitySignupBinding binding;
                              }
                              else
                              {
-                                 binding.buttonSignUp.setVisibility(View.VISIBLE);    //BUTTON VISIBLE
+                                loading(false);   //BUTTON VISIBLE
                                  showToast("Failed To Create New Account");
                              }
                 });
@@ -115,5 +114,17 @@ private ActivitySignupBinding binding;
         }
 
     }
-
+    //Progress bar
+    private void loading(Boolean isLoading)
+    {
+        if(isLoading)
+        {
+            binding.buttonSignUp.setVisibility(View.INVISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.progressBar.setVisibility(View.INVISIBLE);
+            binding.buttonSignUp.setVisibility(View.VISIBLE);
+        }
+    }
 }

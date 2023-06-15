@@ -44,8 +44,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     //LOGIN ACTIVITY
     private void forgotPassword()
     {
-        binding.forgetPasswordBtn.setVisibility(View.INVISIBLE);   //BUTTON INVISIBLE
-        binding.progressBar.setVisibility(View.INVISIBLE);    // PROGRESS BAR VISIBLE
+      loading(true);
 
         firebaseAuth.sendPasswordResetEmail(binding.forgetPasswordEmail.getText().toString().trim()).addOnCompleteListener(task -> {
             if(task.isSuccessful())
@@ -56,7 +55,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             }
             else
             {
-                binding.forgetPasswordBtn.setVisibility(View.VISIBLE);    //BUTTON VISIBLE
+                loading(false); //BUTTON VISIBLE
                 showToast("Email Not Registered");
             }
         });
@@ -81,6 +80,19 @@ public class ForgotPasswordActivity extends AppCompatActivity {
             return false;
         } else {
             return true;
+        }
+    }
+    //Progress bar
+    private void loading(Boolean isLoading)
+    {
+        if(isLoading)
+        {
+            binding.forgetPasswordBtn.setVisibility(View.INVISIBLE);
+            binding.progressBar.setVisibility(View.VISIBLE);
+        }
+        else {
+            binding.progressBar.setVisibility(View.INVISIBLE);
+            binding.forgetPasswordBtn.setVisibility(View.VISIBLE);
         }
     }
 }
