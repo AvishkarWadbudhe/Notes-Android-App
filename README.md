@@ -51,8 +51,9 @@ This is a basic implementation of a notes app using Firebase. Here are some poss
 3. Enhance the search functionality with filters and sorting options.
 4. Add support for adding images or attachments to notes.
 5. Implement note sharing functionality with other users.
+6. Add a remove button in search box
 
-Feel free to contribute to the project by submitting pull requests or suggesting new features and improvements.
+I am always looking for ways to improve this app. If you have any suggestions, please feel free to open an issue or pull a request.
 
 ## License
 
