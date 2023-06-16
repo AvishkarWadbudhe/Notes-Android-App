@@ -34,24 +34,28 @@ public class CreateNotesActivity extends AppCompatActivity {
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        //DATE AND TIME
         binding.textDateTime.setText(
                 new SimpleDateFormat("EEEE,dd MMMM yyyy HH:mm", Locale.getDefault())
                         .format(new Date())
         );
-        setListeners();
+        setListeners(); //CALLING LISTENERS
     }
     private void setListeners()
     {
+        //BACK BUTTON
         binding.imageBackButton.setOnClickListener(v -> onBackPressed());
 
+        //SAVE BUTTON
         binding.saveNotes.setOnClickListener(v ->{
             if(isValidField())
             {
-                saveDataInDatabase();
+                saveDataInDatabase(); //SAVING NOTES IN FIRESTORE
             }
         });
 
     }
+    //SAVING NOTES INTO DATABASE
     private void saveDataInDatabase()
     {
         DocumentReference documentReference = firebaseFirestore.collection("notes")
@@ -75,7 +79,6 @@ public class CreateNotesActivity extends AppCompatActivity {
     //CHECKING THE FIELD IS EMPTY OR INVALID
     private Boolean isValidField()
     {
-
 
         if(binding.inputNoteTitle.getText().toString().trim().isEmpty())     //CHECKING EMAIL
         {

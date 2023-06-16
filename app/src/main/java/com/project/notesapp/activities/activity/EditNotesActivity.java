@@ -35,33 +35,37 @@ public class EditNotesActivity extends AppCompatActivity {
         binding = ActivityEditNotesBinding.inflate(getLayoutInflater());
 
         setContentView(binding.getRoot());
-        data =getIntent();
+        data =getIntent(); //GETTING NOTES CONTENT
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         firebaseFirestore = FirebaseFirestore.getInstance();
 
+        //DATE AND TIME
         binding.textDateTime.setText(
                 new SimpleDateFormat("EEEE,dd MMMM yyyy HH:mm a", Locale.getDefault())
                         .format(new Date())
         );
 
-        setDataInView();
+        setDataInView();//SETTING NOTES CONTENT IN PAGE
         setListener();
     }
-
+//SET LISTNERS
     private  void setListener()
     {
+        //BACKBUTTON
         binding.imageBackButton.setOnClickListener(v -> onBackPressed());
 
         binding.saveNotes.setOnClickListener(v ->{
             if(isValidField())
             {
-                updateDataInDatabase();
+                updateDataInDatabase(); //UPDATE NOTES IN DATABASE
+                setDataInView(); // SET NOTES CONTENT AFTER UPDATE
             }
         });
     }
 
+    //UPDATING DATA IN DATABASE
     private void updateDataInDatabase()
     {
         DocumentReference documentReference = firebaseFirestore.collection("notes")
@@ -75,10 +79,11 @@ public class EditNotesActivity extends AppCompatActivity {
         documentReference.update(notes).addOnSuccessListener(unused -> {
             showToast("Saved...");
             onBackPressed();
+
         }).addOnFailureListener(e -> showToast("Failed to saved"));
 
     }
-
+//SETTING NOTES CONTENT IN PAGE
     private void setDataInView()
     {
         binding.inputNoteTitle.setText(data.getStringExtra(Variables.TITLE));
@@ -89,10 +94,9 @@ public class EditNotesActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
 
     }
+    //CHECKING TITLE AND NOTES CONTENT IS EMPTY OR NOT
     private Boolean isValidField()
     {
-
-
         if(binding.inputNoteTitle.getText().toString().trim().isEmpty())     //CHECKING EMAIL
         {
             showToast("Enter Title");
