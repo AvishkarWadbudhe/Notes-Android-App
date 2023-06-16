@@ -63,6 +63,8 @@ ActivityViewNotesBinding binding;
     }
     private void setDataInView()
     {
+
+
         binding.inputNoteTitle.setText(data.getStringExtra(Variables.TITLE));
         binding.textDateTime.setText(data.getStringExtra(Variables.DATE_TIME));
         binding.inputNote.setText(data.getStringExtra(Variables.CONTENT));
@@ -71,5 +73,53 @@ ActivityViewNotesBinding binding;
     private void showToast(String message){
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
 
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            // Get the updated note data and position
+            String updatedTitle = data.getStringExtra(Variables.TITLE);
+            String updatedDateTime = data.getStringExtra(Variables.DATE_TIME);
+            String updatedContent = data.getStringExtra(Variables.CONTENT);
+
+
+            // Update the UI with the updated note data
+            binding.inputNoteTitle.setText(updatedTitle);
+            binding.textDateTime.setText(updatedDateTime);
+            binding.inputNote.setText(updatedContent);
+
+            // Update the note data in the intent to reflect the changes
+            data.putExtra(Variables.TITLE, updatedTitle);
+            data.putExtra(Variables.DATE_TIME, updatedDateTime);
+            data.putExtra(Variables.CONTENT, updatedContent);
+        }
+    }
+    protected void onResume() {
+        super.onResume();
+        retrieveUpdatedNoteData();
+    }
+
+    //RETIERVING UPDATED NOTES FROM EDIT NOTES
+    private void retrieveUpdatedNoteData() {
+        String noteId = data.getStringExtra("noteId");
+        DocumentReference documentReference = firebaseFirestore.collection("notes")
+                .document(firebaseUser.getUid())
+                .collection("myNotes")
+                .document(noteId);
+
+        documentReference.get().addOnSuccessListener(documentSnapshot -> {
+            if (documentSnapshot.exists()) {
+                String title = documentSnapshot.getString(Variables.TITLE);
+                String dateTime = documentSnapshot.getString(Variables.DATE_TIME);
+                String content = documentSnapshot.getString(Variables.CONTENT);
+
+                binding.inputNoteTitle.setText(title);
+                binding.textDateTime.setText(dateTime);
+                binding.inputNote.setText(content);
+            } else {
+                showToast("Note does not exist");
+            }
+        }).addOnFailureListener(e -> showToast("Failed to retrieve note data"));
     }
 }
