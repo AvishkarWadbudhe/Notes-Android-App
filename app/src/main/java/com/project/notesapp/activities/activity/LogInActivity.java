@@ -107,7 +107,7 @@ private void checkMailVerification()
             showToast("Enter Email");
             return false;
         }
-        else if(!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches())
+        else if(!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString().trim()).matches())
         {
             showToast("Enter Valid Email");
             return false;

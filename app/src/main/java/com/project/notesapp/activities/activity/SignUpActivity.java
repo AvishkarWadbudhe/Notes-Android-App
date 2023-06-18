@@ -94,7 +94,7 @@ private ActivitySignupBinding binding;
             showToast("Enter Email");
             return false;
         }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches())  //CHECKING EMAIL PATTERN
+        else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString().trim()).matches())  //CHECKING EMAIL PATTERN
         {
             showToast("Enter Valid Email");
             return false;

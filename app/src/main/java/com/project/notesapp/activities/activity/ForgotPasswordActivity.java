@@ -75,7 +75,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
         if (binding.forgetPasswordEmail.getText().toString().trim().isEmpty()) {
             showToast("Enter Email");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.forgetPasswordEmail.getText().toString()).matches()) {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.forgetPasswordEmail.getText().toString().trim()).matches()) {
             showToast("Enter Valid Email");
             return false;
         } else {

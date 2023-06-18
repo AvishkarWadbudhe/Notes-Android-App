@@ -34,6 +34,7 @@
             android:layout_height="wrap_content"
 
             android:animateLayoutChanges="true">
+
             <ImageView
                 android:id="@+id/imageBackButton"
                 android:layout_width="@dimen/_30sdp"
@@ -48,24 +49,25 @@
                 app:tint="@color/colorAccent" />
 
 
-                <EditText
-                    android:id="@+id/inputNoteTitle"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_35sdp"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:background="@null"
-                    android:fontFamily="@font/ubuntu_bold"
-                    android:hint="@string/note_title"
-                    android:imeOptions="actionDone"
-                    android:importantForAutofill="no"
-                    android:includeFontPadding="false"
-                    android:inputType="text"
-                    android:textColor="@color/primary_text"
-                    android:textColorHint="@color/colorTextHint"
-                    android:textSize="@dimen/_20ssp"
-                    app:layout_constraintTop_toBottomOf="@id/imageBackButton"/>
+            <EditText
+                android:id="@+id/inputNoteTitle"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_35sdp"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_bold"
+                android:hint="@string/note_title"
+                android:imeOptions="actionDone"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="text"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_20ssp"
+                app:layout_constraintTop_toBottomOf="@id/imageBackButton" />
+
             <TextView
                 android:id="@+id/textDateTime"
                 android:layout_width="0dp"
@@ -76,34 +78,30 @@
                 android:textSize="@dimen/_12ssp"
                 app:layout_constraintEnd_toEndOf="@id/inputNoteTitle"
                 app:layout_constraintStart_toStartOf="@id/inputNoteTitle"
-                app:layout_constraintTop_toBottomOf="@id/inputNoteTitle"
-                />
+                app:layout_constraintTop_toBottomOf="@id/inputNoteTitle" />
 
 
-
-                <EditText
-                    android:id="@+id/inputNote"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_12sdp"
-                    android:layout_marginTop="@dimen/_15sdp"
-                    android:layout_marginEnd="@dimen/_12sdp"
-                    android:layout_marginBottom="@dimen/_15sdp"
-                    android:background="@null"
-                    android:fontFamily="@font/ubuntu_regular"
-                    android:gravity="top"
-                    android:hint="@string/type_note_here"
-                    android:importantForAutofill="no"
-                    android:includeFontPadding="false"
-                    android:inputType="textMultiLine"
-                    android:minHeight="@dimen/_100sdp"
-                    android:textColor="@color/primary_text"
-                    android:textColorHint="@color/colorTextHint"
-                    android:textSize="@dimen/_13ssp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textDateTime"
-                    />
-
+            <EditText
+                android:id="@+id/inputNote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:layout_marginEnd="@dimen/_12sdp"
+                android:layout_marginBottom="@dimen/_15sdp"
+                android:background="@null"
+                android:fontFamily="@font/ubuntu_regular"
+                android:gravity="top"
+                android:hint="@string/type_note_here"
+                android:importantForAutofill="no"
+                android:includeFontPadding="false"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/_100sdp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@color/colorTextHint"
+                android:textSize="@dimen/_13ssp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textDateTime" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
