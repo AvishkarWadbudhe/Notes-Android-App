@@ -37,12 +37,12 @@ This is a simple notes app built using Firebase for authentication and Firestore
 5. Build and run the app on an Android emulator or physical device.
 
 ## Screenshots
-<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/f0347de0-1ecc-42ea-b472-7d9d510af2f3" alt="LogIn Page" width="200px">
-<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/e35bb88e-be9c-4df4-b241-677e21078f7c" alt="SignUp Page" width="200px">
-<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/3707c091-e68d-49b0-a4c1-147000a749c1" alt="Home Page" width="200px">
-<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/11a3042f-e229-43a4-a8a9-7d076b801de5" alt="View Note" width="200px">
-<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/00c6869b-8d34-468d-985a-5b4eee0a78f0" alt="Screenshot" width="200px">
-
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/88742eaa-7b3e-46bc-b32a-a7ad1a8bc53d" alt="LogIn Page" width="200px">
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/efc19009-f1c5-4285-a6c8-625940b19716" alt="sign up Page" width="200px">
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/9edcf960-a224-4cd0-b222-a7883702774d" alt="forget password" width="200px">
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/d15b16ab-a5aa-4f5d-86c8-2d3ef416338d" alt="homepage" width="200px">
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/6eb69879-8dc9-4fd9-a55c-9246eaf8ec60" alt="search" width="200px">
+<img src="https://github.com/AvishkarWadbudhe/Notes-Android-App/assets/96787413/d26add12-80e4-494c-bc70-b537a14137ea" alt="sign up Page" width="200px">
 
 ## Future Enhancements
 
